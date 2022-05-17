@@ -14,7 +14,10 @@ public class Persona {
     //creamos el constructor de  persona y le pasamos unos parámetros
     public Persona(String nombre, String poblacion, int edad) {
         this.nombre = nombre;
-        this.poblacion = poblacion;
+        if(poblacion.equals("")){
+            this.poblacion = "Desconocido";
+        }else{
+        this.poblacion = poblacion;}
         this.edad = edad;
     }
 
