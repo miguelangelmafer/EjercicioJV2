@@ -18,7 +18,9 @@ public class Acciones {
             while ((line = bf.readLine()) != null) {
                 String[] values = line.split(":");
                 if (values.length == 3) {
-                    Persona p = new Persona(values[0], values[1], Integer.parseInt(values[2]));
+                    Optional <String> poblacion = values[1] == ""? Optional.empty():Optional.of(values[1]);
+                    String poblacionDesconida = poblacion.orElse("Desconocido");
+                    Persona p = new Persona(values[0], poblacionDesconida, Integer.parseInt(values[2]));
                     listaPersonas.add(p);
                 }
             }
@@ -35,6 +37,7 @@ public class Acciones {
 
     public void muestraPersona(ArrayList<Persona> lista) {
         System.out.println("Personas menores de 25");
-        lista.stream().filter(persona -> persona.getEdad()<25).forEach(p -> System.out.println("Nombre: " + p.getNombre() + " Población: " + p.getPoblacion() + " Edad: " + p.getEdad()));
+        lista.stream().filter(persona -> persona.getEdad()<25).forEach
+                (p -> System.out.println("Nombre: " + p.getNombre() + " Población: " + p.getPoblacion() + " Edad: " + p.getEdad()));
     }
 }

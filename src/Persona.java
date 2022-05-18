@@ -1,5 +1,4 @@
 
-
 //creamos la clase persona con sus atributos
 public class Persona {
     private String nombre;
@@ -14,10 +13,7 @@ public class Persona {
     //creamos el constructor de  persona y le pasamos unos parámetros
     public Persona(String nombre, String poblacion, int edad) {
         this.nombre = nombre;
-        if(poblacion.equals("")){
-            this.poblacion = "Desconocido";
-        }else{
-        this.poblacion = poblacion;}
+        this.poblacion = poblacion;
         this.edad = edad;
     }
 
